@@ -1,0 +1,121 @@
+main {
+    margin: 0 auto;
+}
+
+.weather-section {
+    width: 1700px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 10px;
+}
+
+.weather-widget {
+    position: relative;
+    /*color: #000000;*/
+    width: 500px;
+    padding: 20px;
+    margin: 0;
+    font-size: 25px;
+    background-color: cadetblue;
+    border-radius: 10px;
+}
+
+.weather-widget__city {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.weather-widget__close-btn {
+    font-weight: 700;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #bd2424;
+}
+
+.weather-widget__close-btn:hover {
+    color: #fa0404;
+    transition: 0.4s;
+}
+
+.weather-widget__time {
+    font-size: 18px;
+    /*color: rgb(255, 253, 253);*/
+    margin: 0;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.weather-widget__main-info {
+    display: grid;
+    grid-template-columns: 150px 70px auto;
+    grid-template-areas: 'temp img desc'
+                         'temp img feels_t';
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.weather-widget__temperature {
+    display: flex;
+    justify-content: center;
+    grid-area: temp;
+    margin: 0;
+    padding: 0;
+    font-size: 50px;
+}
+
+.weather-widget__temperature:after {
+    content: '\00B0';
+}
+
+.weather-widget__weather-img {
+    display: flex;
+    justify-content: center;
+    grid-area: img;
+    margin: 0;
+    padding: 0;
+}
+
+.weather-widget__description {
+    grid-area: desc;
+    margin: 0;
+    padding: 0;
+}
+
+.weather-widget__temperature-feels {
+    grid-area: feels_t;
+    margin: 0;
+    padding: 0;
+}
+
+.weather-widget__temperature-feels:after {
+    content: '\00B0';
+}
+
+.weather-widget__optionally-info {
+    display: grid;
+    grid-template-columns: 180px 190px 180px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.weather-widget__optionally-info span {
+    display: flex;
+    justify-items: center;
+}
+
+.weather-widget__optionally-info span img {
+    margin-right: 3px;
+    filter: hue-rotate(120deg);
+}
+
+div [id^="map"] {
+    width: 500px;
+    height: 300px;
+}

@@ -1,0 +1,95 @@
+body {
+    font-family: 'Jura', sans-serif;
+    font-size: 25px;
+    background-color: #dad7d7;
+    margin: 0 auto;
+}
+
+.input-location {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #8f8585;
+    background-color: #a19f9f;
+    font-weight: 600;
+}
+
+.input-location__title {
+    display: flex;
+    align-items: center;
+}
+
+.input-location__title h1 {
+    margin: 0 0 0 10px;
+}
+
+.input-location__form {
+    display: flex;
+    align-items: center;
+}
+
+.input-location__filter {
+    display: flex;
+    align-items: center;
+}
+
+.input-location__filter-title {
+    margin-right: 10px;
+}
+
+.input-location__filter-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-right: 20px;
+}
+
+.input-location__inputSection {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-right: 10px;
+}
+
+.input-location__input-field {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-location__showWeather {
+    height: 35px;
+}
+
+.input-location__filter button {
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 7px;
+    border-color: #8f8585;
+}
+
+.input-location__filter button:hover {
+    background-color: #bdbdbd;
+}
+
+.hidden {
+    display: none;
+}
+
+.input-location__form {
+    position: relative;
+}
+
+.input-location__error-block {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 70px;
+    right: auto;
+    padding: 10px;
+    background-color: #fa0404;
+    border: 3px solid #564747;
+    border-radius: 5px;
+}

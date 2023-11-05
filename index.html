@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/weather-section.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="input-location">
+            <div class="input-location__title">
+                <img src="imgs/logo.png" alt="" width="60" height="60">
+                <h1>Погода</h1>
+            </div>
+            <div class="input-location__filter">
+                <p class="input-location__filter-title">Выберете фильтр:</p>
+                <div class="input-location__filter-buttons">
+                    <button class="input-location__showCoordinates">Координаты</button>
+                    <button class="input-location__showCity">Город</button>
+                </div>
+                <form class="input-location__form">
+                    <div class="input-location__inputSection" id="coordinate_section">
+                        <div class="input-location__input-field">
+                            <label for="latitude">Широта:</label>
+                            <input type="text" id="latitude" autocomplete="off">
+                        </div>
+                        <div class="input-location__input-field">
+                            <label for="longitude">Долгота:</label>
+                            <input type="text" id="longitude" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="input-location__inputSection hidden" id="city_section">
+                        <div class="input-location__input-field">
+                            <label for="city">Город:</label>
+                            <input type="text" id="city" autocomplete="off">
+                        </div>
+                    </div>
+                    <button class="input-location__showWeather"><img src="imgs/search.png" alt="" width="20" height="20"></button>
+                    <div class="input-location__error-block"></div>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="weather-section"></div>
+    </main>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=a5b341d0-bf52-4e11-aae4-6fc97636ad98&lang=ru_RU"></script>
+    <script src="scripts/change-filter.js"></script>
+    <script src="scripts/main.js" type="module"></script>
+</body>
+</html>
