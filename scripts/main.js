@@ -9,7 +9,7 @@ form.onsubmit = (e) => {
     e.preventDefault();
     checkData();
     const place = getPlaceValue();
-    const placeInfo = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${place}&lang=ru`;
+    const placeInfo = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${place}&lang=ru`;
     return appendWidget(placeInfo);
 }
 
