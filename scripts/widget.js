@@ -6,12 +6,14 @@ export function createWeatherWidget(data) {
     const pattern = document.querySelector('.weather-widget');
     const weatherSection = pattern.cloneNode(true);
     addWidgetData(weatherSection, data);
+    addDeleteButton(weatherSection);
     weatherSection.style.background = getBackgroundColor(data);
+
     const container = document.querySelector(".weather-section");
     container.appendChild(weatherSection);
+
     createMapInWidget([data.location.lat, data.location.lon], counterOfWidgets);
     counterOfWidgets++;
-    addDeleteButton(weatherSection);
 }
 
 function addWidgetData(widget, data) {
