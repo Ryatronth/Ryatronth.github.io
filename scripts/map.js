@@ -12,6 +12,6 @@ function init(location, counterOfWidgets) {
 }
 
 export function createMapInWidget(location, counterOfWidgets) {
-    init(location, counterOfWidgets)
+    init(location, counterOfWidgets);
     ymaps.ready(init);
 }

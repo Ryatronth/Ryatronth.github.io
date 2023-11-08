@@ -47,7 +47,31 @@
     </header>
 
     <main>
-        <div class="weather-section"></div>
+        <div class="weather-section">
+            <div class="weather-widget hidden">
+                <h2 class="weather-widget__city"></h2>
+                <div class="weather-widget__close-btn">X</div>
+                <p class="weather-widget__time"></p>
+                <div class="weather-widget__main-info">
+                    <p class="weather-widget__temperature"></p>
+                    <img class="weather-widget__weather-img" src="" alt="">
+                    <p class="weather-widget__description"></p>
+                    <p class="weather-widget__temperature-feels"></p>
+                </div>
+                <div class="weather-widget__optionally-info">
+                    <span class="weather-widget__wind">
+                        <img src="../imgs/wind.png" alt="" width="20" height="20">
+                    </span>
+                    <span class="weather-widget__pressure">
+                        <img src="../imgs/pressure.png" alt="" width="20" height="20">
+                    </span>
+                    <span class="weather-widget__humidity">
+                        <img src="../imgs/humidity.png" alt="" width="20" height="20">
+                    </span>
+                </div>
+                <div id="map_"></div>
+            </div>
+        </div>
     </main>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=a5b341d0-bf52-4e11-aae4-6fc97636ad98&lang=ru_RU"></script>
     <script src="scripts/change-filter.js"></script>

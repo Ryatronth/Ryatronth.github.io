@@ -3,37 +3,30 @@ import {createMapInWidget} from "./map.js"
 let counterOfWidgets = 0;
 
 export function createWeatherWidget(data) {
-    const weatherSection = document.createElement("div");
-    weatherSection.className = "weather-widget";
-    weatherSection.innerHTML = `
-        <h2 class="weather-widget__city">${data.location.name}</h2>
-        <div class="weather-widget__close-btn">X</div>
-        <p class="weather-widget__time">Сейчас ${(data.location.localtime).slice(11)}</p>
-        <div class="weather-widget__main-info">
-            <p class="weather-widget__temperature">${data.current.temp_c}</p>
-            <img class="weather-widget__weather-img" src="${data.current.condition.icon}" alt="">
-            <p class="weather-widget__description">${data.current.condition.text}</p>
-            <p class="weather-widget__temperature-feels">Ощущается как ${data.current.feelslike_c}</p>
-        </div>
-        <div class="weather-widget__optionally-info">
-            <span class="weather-widget__wind"><img src="../imgs/wind.png" alt="" width="20" height="20">
-                ${(data.current.wind_kph * 1000 / 3600).toFixed(2)} м/с, ${getWindDir(data.current.wind_dir)}
-            </span>
-            <span class="weather-widget__pressure"><img src="../imgs/pressure.png" alt="" width="20" height="20">
-                ${Math.round(data.current.pressure_mb * 0.750064)} мм рт. ст.
-            </span>
-            <span class="weather-widget__humidity"><img src="../imgs/humidity.png" alt="" width="20" height="20">
-                ${data.current.humidity}%
-            </span>
-        </div>
-        <div id="map_${counterOfWidgets}"></div>
-    `;
+    const pattern = document.querySelector('.weather-widget');
+    const weatherSection = pattern.cloneNode(true);
+    addWidgetData(weatherSection, data);
     weatherSection.style.background = getBackgroundColor(data);
     const container = document.querySelector(".weather-section");
     container.appendChild(weatherSection);
     createMapInWidget([data.location.lat, data.location.lon], counterOfWidgets);
     counterOfWidgets++;
     addDeleteButton(weatherSection);
+}
+
+function addWidgetData(widget, data) {
+    widget.querySelector('.weather-widget__city').textContent = data.location.name;
+    widget.querySelector('.weather-widget__time').textContent = `Сейчас ${(data.location.localtime).slice(11)}`;
+    widget.querySelector('.weather-widget__temperature').textContent = data.current.temp_c;
+    widget.querySelector('.weather-widget__weather-img').src = `${data.current.condition.icon}`;
+    widget.querySelector('.weather-widget__description').textContent = data.current.condition.text;
+    widget.querySelector('.weather-widget__temperature-feels').textContent = `Ощущается как ${data.current.feelslike_c}`;
+    widget.querySelector('.weather-widget__wind').innerHTML += `${(data.current.wind_kph * 1000 / 3600).toFixed(2)} м/с,
+     ${getWindDir(data.current.wind_dir)}`;
+    widget.querySelector('.weather-widget__pressure').innerHTML += `${Math.round(data.current.pressure_mb * 0.750064)} мм рт. ст.`;
+    widget.querySelector('.weather-widget__humidity').innerHTML += `${data.current.humidity}%`;
+    widget.querySelector(`#map_`).id = `map_${counterOfWidgets}`;
+    widget.classList.remove('hidden');
 }
 
 function addDeleteButton(widget) {
